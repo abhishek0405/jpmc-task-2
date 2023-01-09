@@ -214,7 +214,8 @@ def get(req_handler, routes):
                 req_handler.end_headers()
                 params = read_params(req_handler.path)
                 data = json.dumps(handler(routes, params)) + '\n'
-                req_handler.wfile.write(bytes(data, encoding='utf-8'))
+                print(type(data))
+                req_handler.wfile.write(bytes(data))
                 return
 
 
@@ -328,7 +329,7 @@ class App(object):
                     'price': asks2[0][0],
                     'size': asks2[0][1]
                 }
-            }]
+        }]
 
 
 ################################################################################
